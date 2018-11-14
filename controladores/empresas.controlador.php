@@ -11,7 +11,7 @@
         }
         
         
-        public static function ctrMostrarEmpresas($item,$valor){
+        static public function ctrMostrarEmpresas($item,$valor){
             $tabla="Empresa";
             
             $resp=ModeloEmpresas::mdlMostrarEmpresas($tabla,$item,$valor);
@@ -129,7 +129,7 @@
         }
         
         /*========================
-        EDITAR EMPRESA
+        ELIMINAR EMPRESA
         ==========================
         */
         

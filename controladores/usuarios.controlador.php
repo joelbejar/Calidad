@@ -2,7 +2,7 @@
 
     class ControladorUsuarios{
         
-        public static function ctrMostrarTotalUsuarios($orden){
+        static public function ctrMostrarTotalUsuarios($orden){
             $tabla="Usuario";
             
             $resp=ModeloUsuarios::mdlMostrarTotalUsuarios($tabla,$orden);
@@ -12,7 +12,7 @@
         }
         
         
-        public static function ctrMostrarUsuarios($item,$valor){
+        static public function ctrMostrarUsuarios($item,$valor){
             $tabla="Usuario";
             
             $resp=ModeloUsuarios::mdlMostrarUsuarios($tabla,$item,$valor);

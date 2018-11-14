@@ -12,6 +12,15 @@
             
         }
         
+        static public function ctrMostrarValoraciones($item,$valor){
+             $tabla="Valoracion";
+            
+            $resp=ModeloValoraciones::mdlMostrarValoraciones($tabla,$item,$valor);
+            
+            return $resp;
+            
+        }
+        
         
     }
 

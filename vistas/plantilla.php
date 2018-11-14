@@ -130,7 +130,10 @@ session_start();
            $_GET["ruta"] == "salir" ||
            $_GET["ruta"] == "usuarios" ||
            $_GET["ruta"] == "empresas" ||
-           $_GET["ruta"] == "sucursal"
+           $_GET["ruta"] == "sucursal" ||
+           $_GET["ruta"] == "valoraciones" ||
+           $_GET["ruta"] == "servicio" ||
+           $_GET["ruta"] == "distrito"
             ){
 
 
@@ -159,6 +162,8 @@ session_start();
 ?>
 
 <script src="vistas/dist/js/gestorUsuarios.js"></script>
+<script src="vistas/dist/js/gestorValoraciones.js"></script>
+<script src="vistas/dist/js/gestorSucursal.js"></script>
 <script src="vistas/dist/js/gestorEmpresas.js"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 
     class ModeloUsuarios{
         
-        public static function mdlMostrarTotalUsuarios($tabla,$orden){
+        static public function mdlMostrarTotalUsuarios($tabla,$orden){
             $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY $orden DESC");
             
             $stmt -> execute();
@@ -17,7 +17,7 @@
         }
     
 
-        public static function mdlMostrarUsuarios($tabla,$item,$valor){
+        static public function mdlMostrarUsuarios($tabla,$item,$valor){
             
             if($item!=null){
                 $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");

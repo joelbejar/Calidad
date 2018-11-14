@@ -1,4 +1,5 @@
 <?php
+
     $totalVisitas=ControladorVisitas::ctrMostrarTotalVisitas();
     $totalValoraciones=ControladorValoraciones::ctrMostrarTotalValoraciones();
 
