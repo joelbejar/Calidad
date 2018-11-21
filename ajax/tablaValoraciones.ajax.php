@@ -52,7 +52,27 @@
 
                 $empresa = ControladorEmpresas::ctrMostrarEmpresas($item,$valor);
                 
+                /*=============================================
+                REVISAR ESTADO  PARA ELIMINAR
+                =============================================*/
 
+                
+	  			if( $valoracion[$i]["eliminado"] == 0){
+
+	  				$colorEliminar = "btn-success";
+	  				$textoEliminar = "Eliminado";
+	  				$eliminarUsuario = 0;
+
+
+	  			}else{
+
+	  				$colorEliminar = "btn-danger";
+	  				$textoEliminar = "Eliminado";
+	  				$eliminarUsuario = 1;
+
+	  			}
+
+	  			$eliminado = "<button class='btn btn-xs btnEliminarValoracion ".$colorEliminar."' idValoracion='". $valoracion[$i]["idValoracion"]."' eliminarValoracion='".$eliminarUsuario."'>".$textoEliminar."</button>";
                 /*=============================================
                 DEVOLVER DATOS JSON
                 =============================================*/
@@ -64,6 +84,7 @@
                             "'.$sucursal["direccion"].'",
                             "'.$valoracion[$i]["comentario"].'",
                             "'.$valoracion[$i]["puntaje"].'",
+                            "'.$eliminado.'",
                             "'.$valoracion[$i]["fecha"].'"
                         ],';
                 }

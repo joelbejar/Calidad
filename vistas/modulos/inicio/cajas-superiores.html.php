@@ -1,6 +1,5 @@
 <?php
 
-    $totalVisitas=ControladorVisitas::ctrMostrarTotalVisitas();
     $totalValoraciones=ControladorValoraciones::ctrMostrarTotalValoraciones();
 
     $totalEmpresas=ControladorEmpresas::ctrMostrarTotalEmpresas();
@@ -35,7 +34,7 @@ CAJAS SUPERIORES
     <!-- icon -->
     <div class="icon">
     
-      <i class="ion ion-list-box"></i>
+      <i class="ion ion-stats-bars"></i>
     </div>
     <!-- icon -->
     
@@ -47,41 +46,6 @@ CAJAS SUPERIORES
 </div>
 <!-- col -->
 
-<!--===========================================================================-->
-
-<!-- col -->
-<div class="col-lg-3 col-xs-6">
-  
-  <!-- small box -->
-  <div class="small-box bg-green">
-
-    <!-- inner -->
-    <div class="inner">
-      
-      <h3><?=number_format($totalVisitas["total"]);?></h3>
-
-      <p>Visitas</p>
-    
-    </div>
-    <!-- inner -->
-    
-    <!-- icon -->
-    <div class="icon">
-      
-      <i class="ion ion-stats-bars"></i>
-    
-    </div>
-    <!-- icon -->
-
-    <a href="visitas" class="small-box-footer">Más Información <i class="fa fa-arrow-circle-right"></i></a>
-  
-  </div>
-  <!-- small box -->
-
-</div>
-<!-- col -->
-
-<!--===========================================================================-->
 
 <!-- col -->
 <div class="col-lg-3 col-xs-6">

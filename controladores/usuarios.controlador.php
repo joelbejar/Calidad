@@ -21,6 +21,17 @@
             
         }
         
+        static public function ctrMostrarUsuariosReportados($item,$valor){
+            $tabla="Usuario_reportado";
+            
+            $resp=ModeloUsuarios::mdlMostrarUsuariosReportado($tabla,$item,$valor);
+            
+            return $resp;
+            
+        }
+        
+
+        
     }
 
 

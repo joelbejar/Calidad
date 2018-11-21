@@ -41,37 +41,37 @@ PÁGINA DE INICIO
     <!-- row -->
     <div class="row">
 
-      <div class="col-lg-12">
+      <div class="col-xs-12 ">
         
          <?php
        
-          include "inicio/grafico-ventas.html.php";
-          /*include "inicio/productos-mas-vendidos.html.php";     */ 
+          include "inicio/grafico-usuarios.html.php";
+
 
         ?>
 
       </div>
-
-       <div class="col-lg-12">
+      <div class="col-xs-12  ">
         
          <?php
        
-          include "inicio/grafico-visitas.html.php";
-          include "inicio/ultimos-usuarios.html.php";     
+        
+            include "inicio/grafico-visitas.html.php";
 
         ?>
 
       </div>
 
-       <div class="col-lg-12">
-
-        <?php
-
-        /*include "inicio/productos-recientes.html.php";*/
+       <div class="col-lg-12 ">
+        
+         <?php
+       include "inicio/ultimos-usuarios.html.php";  
+          
 
         ?>
 
       </div>
+
 
     </div>
     <!-- row -->

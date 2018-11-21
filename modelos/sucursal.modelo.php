@@ -50,5 +50,32 @@
             $stmt = null;  
         }
         
+        /*=============================================
+        CREAR SUCURSAL
+        =============================================*/
+
+	static public function mdlIngresarSucursal($tabla1,$tabla2, $datos){
+
+		$stmt = Conexion::conectar()->prepare("call nueva_sucursal(:idEmpresa,:idDistrito,:direccion,:latitud,:longitud,:idServicio)");
+
+		$stmt->bindParam(":idEmpresa", $datos["idEmpresa"], PDO::PARAM_INT);
+		$stmt->bindParam(":idDistrito", $datos["idDistrito"], PDO::PARAM_INT);
+		$stmt->bindParam(":direccion", $datos["direccion"], PDO::PARAM_STR);
+		$stmt->bindParam(":latitud", $datos["latitud"], PDO::PARAM_STR);
+		$stmt->bindParam(":longitud", $datos["longitud"], PDO::PARAM_STR);
+		$stmt->bindParam(":idServicio", $datos["idServicio"], PDO::PARAM_INT);
+        
+        if($stmt->execute()){
+            return "ok";
+        }else{
+            return "error";
+        }
+            
+		$stmt->close();
+		$stmt = null;
+
+	}
+
+        
         
     }

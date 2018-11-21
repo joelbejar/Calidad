@@ -15,7 +15,7 @@
                 return $stmt -> fetch();
 
             }else{
-                $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY idDistrito DESC");
+                $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY idDistritos DESC");
             
                 $stmt -> execute();
 

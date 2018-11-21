@@ -13,8 +13,8 @@ $.ajax({
     }
     
     
-})*/
-
+});
+*/
 
 $(".tablaSucursal").DataTable({
 	 "ajax": "ajax/tablaSucursal.ajax.php",
@@ -64,7 +64,7 @@ $(".seleccionarEmpresa").change(function(){
     
     var empresa = $(this).val();
     
-    
+
 	var datos = new FormData();
     datos.append("idEmpresa",empresa);
     
@@ -79,7 +79,7 @@ $(".seleccionarEmpresa").change(function(){
         dataType: "json",
       	success: function(respuesta){ 
       	    
-      	     console.log("respuesta", respuesta);
+      	    // console.log("respuesta", respuesta);
              $(".entradaSectorEconomico").show();
             $(".entradaSectorEconomico .sectorEmpresa").val(respuesta["sector_economico"]);
 
@@ -87,3 +87,87 @@ $(".seleccionarEmpresa").change(function(){
 
   	}); 
 })
+
+
+
+$(".guardarSucursal").click(function(){
+                
+	/*=============================================
+	PREGUNTAMOS SI LOS CAMPOS OBLIGATORIOS ESTÁN LLENOS
+	=============================================*/
+    /*console.log($(".seleccionarEmpresa").val());
+    console.log($(".sectorEmpresa").val());
+    console.log($(".direccionSucursal").val());
+    console.log($(".seleccionarDistrito").val());
+    console.log($(".seleccionarServicio").val());*/
+    if($(".seleccionarEmpresa").val() != "" && $(".sectorEmpresa").val() != "" && $(".direccionSucursal").val() != "" && $(".seleccionarDistrito").val() != "" && $(".seleccionarServicio").val() != "" && $(".latitudSucursal").val() != "" && $(".longitudSucursal").val() != ""){
+        agregarSucursal();
+    }else{
+		 swal({
+	      title: "Llenar todos los campos obligatorios",
+	      type: "error",
+	      confirmButtonText: "¡Cerrar!"
+	    });
+
+		
+    }
+
+
+});
+
+function agregarSucursal(){
+    
+    var id_empresa=parseInt($(".seleccionarEmpresa").val());
+    var direccion_sucursal=$(".direccionSucursal").val();
+    var id_distrito=parseInt($(".seleccionarDistrito").val());
+    var id_servicio=parseInt($(".seleccionarServicio").val());
+    var latitud=$(".latitudSucursal").val();
+    var longitud=$(".longitudSucursal").val();
+   
+    console.log(id_empresa);
+    console.log(direccion_sucursal);
+    console.log(id_distrito);
+    console.log(id_servicio);
+
+        console.log(latitud);
+    console.log(longitud);
+    var datosSucursal = new FormData();
+    datosSucursal.append("idEmpresa",id_empresa);
+    datosSucursal.append("direccion",direccion_sucursal);
+    datosSucursal.append("idDistrito",id_distrito);
+    datosSucursal.append("idServicio",id_servicio);
+    datosSucursal.append("latitud",latitud);
+    datosSucursal.append("longitud",longitud);
+    
+    $.ajax({
+        url:"ajax/nuevosucursal.ajax.php",
+        method: "POST",
+        data: datosSucursal,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(res){
+					
+                console.log("respuesta",res);
+                if(res == "ok"){
+
+						swal({
+						  type: "success",
+						  title: "La sucursal ha sido guardado correctamente",
+						  showConfirmButton: true,
+						  confirmButtonText: "Cerrar"
+						  }).then(function(result){
+							if (result.value) {
+
+							window.location = "sucursal";
+
+							}
+						})
+					}
+
+        }
+    });
+    
+    
+    
+}

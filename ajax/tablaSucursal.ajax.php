@@ -36,69 +36,29 @@
             $datosJson='{
             "data": [ ';
             for ($i=0;$i<count($sucursal);$i++){
-                             /*   
+                
                 $item = "idSucursal";
+                
                 $valor = $sucursal[$i]["idSucursal"];
                 
-                $relacion = ControladorSucursal::ctrMostrarRelacionServicio($item,$valor);        
                 
-                
-                $item = "idServicios";
-                $valor = $relacion["idServicio"];
-                
-                $servicio = ControladorServicio::ctrMostrarServicio($item,$valor);*/
-                        /*===============================
-                RECUPERAR LOS NOMBRES DE LA EMPRESAS
-                =================================
-                */
-                $item = "idEmpresa";
-                $valor = $sucursal[$i]["idEmpresa"];
-                
-                
-                $empresa = ControladorEmpresas::ctrMostrarEmpresas($item,$valor);
-                
-                /*===============================
-                RECUPERAR LOS NOMBRES DE LOS DISTRITOS
-                =================================*/
-                
-                $item = "idDistritos";
-                $valor = $sucursal[$i]["idDistrito"];
-                
-                $distrito = ControladorDistrito::ctrMostrarDistrito($item,$valor);
-                
-
-                /*===================================
-                RECUPERAR LOS NOMBRES DE LOS SERVICIOS
-                ======================================
-                */
-                
-
-                /*
-                $item2 = "idEmpresa";
-                $item3= "idDistritos";
-                $item1 = "idSucursal";
-                $item4= "idServicios";
-
-                
-                $valor1 = $sucursal[$i]["idSucursal"];
-                $valor2= $sucursal[$i]["idEmpresa"];
-                $valor3 = $sucursal[$i]["idDistrito"];
-                
-                
-                $resp = ControladorGeneral::ctrMostrarGeneral($item1,$item2,$item4,$valor1,$valor2,$valor3);
+                $resp = ControladorGeneral::ctrMostrarGeneral($item,$valor);
    
- */
+             
                 /*=============================================
                 DEVOLVER DATOS JSON
                 =============================================*/
 
                 $datosJson	 .= '[
                             "'.($i+1).'",
-                            "'.$empresa["nombre"].'",
-                            "'.$empresa["sector_economico"].'",
-                            "'.$sucursal[$i]["direccion"].'",
-                            "'.$distrito["nombre"].'",
-                            "'.$empresa["fecha"].'"
+                            "'.$resp["nombre_empresa"].'",
+                            "'.$resp["sector_economico"].'",
+                            "'.$resp["direccion_empresa"].'",
+                            "'.$resp["nombre_distrito"].'",
+                            "'.$resp["nombre_servicio"].'",
+                            "'.$resp["latitud"].'",
+                            "'.$resp["longitud"].'",
+                            "'.$resp["fecha_empresa"].'"
                         ],';
                 }
 

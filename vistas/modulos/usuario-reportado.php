@@ -4,14 +4,14 @@
   <section class="content-header">
       
     <h1>
-      Gestor Opinión
+      Gestor usuarios Reportados
     </h1>
  
     <ol class="breadcrumb">
 
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
 
-      <li class="active">Gestor Opinión</li>
+      <li class="active">Gestor usuarios Reportados</li>
       
     </ol>
 
@@ -31,7 +31,7 @@
 
         <br>
          
-        <table class="table table-bordered table-striped dt-responsive tablaOpinion" width="100%">
+        <table class="table table-bordered table-striped dt-responsive tablaUsuariosReportado" width="100%">
 
           <thead>
             
@@ -39,12 +39,13 @@
               
               <th style="width:10px">#</th>
               <th>Nombres</th>
-              <th>Empresa</th>
-              <th>Dirección</th>
-              <th>Comentario</th>
-              <th>Puntaje</th>
-              <th>Eliminar</th>
-              <th>fecha</th>
+              <th>Apellidos</th>
+              <th>Email</th>
+              <th>Usuario</th>
+              <th>Motivo</th>
+              <th>Telefono</th>
+              <th>Foto</th>
+              <th>Fecha</th>
 
             </tr>
 
@@ -60,4 +61,8 @@
   </section>
 
 </div>
+
+
+
+
 

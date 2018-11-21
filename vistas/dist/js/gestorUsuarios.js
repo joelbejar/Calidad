@@ -7,7 +7,7 @@ CARGAR LA TABLA DINAMICA DE USUARIOS
 /*
 $.ajax({
     
-    url:"ajax/tablaUsuarios.ajax.php",
+    url:"ajax/tablaUsuariosReportado.ajax.php",
     success:function(resp){
         console.log("respuesta",resp);
     }
@@ -76,7 +76,7 @@ $(".tablaUsuarios tbody").on("click", ".btnActivar", function(){
       	processData: false,
       	success: function(respuesta){ 
       	    
-      	     console.log("respuesta", respuesta);
+      	     //console.log("respuesta", respuesta);
 
       	} 	 
 
@@ -125,7 +125,7 @@ $(".tablaUsuarios tbody").on("click", ".btnEliminar", function(){
       	processData: false,
       	success: function(respuesta){ 
       	    
-      	     console.log("respuesta", respuesta);
+      	    // console.log("respuesta", respuesta);
 
       	} 	 
 

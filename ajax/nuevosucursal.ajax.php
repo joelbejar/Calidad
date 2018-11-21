@@ -1,30 +1,17 @@
 <?php
 
 
-    require_once "../controladores/empresas.controlador.php";
-    require_once "../modelos/empresas.modelo.php";
-
     require_once "../controladores/sucursal.controlador.php";
     require_once "../modelos/sucursal.modelo.php";
 
 
     class AjaxSucursal{
-        
-        public $idEmpresa;
-        public function AjaxTraerSectorEconomico(){
-           $item = "idEmpresa";
-           $valor = $this -> idEmpresa;
-           $resp = ControladorEmpresas::ctrMostrarEmpresas($item,$valor);
-            
-            
-            echo json_encode($resp);
-            
-            
-        }
+
 	/*=============================================
 	GUARDAR SUCURSAL
 	=============================================*/	
-
+        
+        public $idEmpresa;
         public $direccion;
         public $idDistrito;
         public $idServicio;
@@ -48,19 +35,6 @@
 	}
         
     }
-
-
-/*=============================================
-TRAER SECTOR ECONOMICO
-=============================================*/
-if(isset($_POST["idEmpresa"])){
-
-	$traerSubCategoria = new AjaxSucursal();
-	$traerSubCategoria -> idEmpresa = $_POST["idEmpresa"];
-	$traerSubCategoria -> AjaxTraerSectorEconomico();
-
-}
-
   /*=============================================
 CREAR SUCURSAL
 =============================================*/
@@ -76,4 +50,3 @@ if(isset($_POST["direccion"])){
 	$sucursal -> ajaxCrearSucursal();
 
 }
-  

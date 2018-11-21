@@ -2,14 +2,22 @@
 
     class ControladorGeneral{
         
-        static public function ctrMostrarGeneral($item1,$item2,$item3,$valor1,$valor2,$valor3){
+        static public function ctrMostrarGeneral($item,$valor){
             
             
-            $resp = ModeloGeneral::mdlMostrarGeneral($item1,$item2,$item3,$valor1,$valor2,$valor3);
+            $resp = ModeloGeneral::mdlMostrarGeneral($item,$valor);
             
             return $resp;
             
         }
         
-        
+        static public function ctrMostrarGeneralUsuarioReportado($item,$valor){
+            
+            
+            $resp = ModeloGeneral::mdlMostrarGeneralUsuarioReportado($item,$valor);
+            
+            return $resp;
+            
+        }
+           
 }

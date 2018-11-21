@@ -23,14 +23,7 @@
             echo json_encode($resp);
         }
         
-        /*==============================
-        REGISTRAR EMPRESAS
-        =================================
-        */
-        
-        public function ajaxRegistrarEmpresa(){
 
-        }
         
         /*==============================
         MODIFICAR EMPRESAS
@@ -48,15 +41,7 @@
             
             echo json_encode($resp);
         }
-        
-        /*==============================
-        ELIMINAR EMPRESAS
-        =================================
-        */
 
-        public function ajaxEliminarEmpresa(){
-
-        }
     }
 
 /*============================

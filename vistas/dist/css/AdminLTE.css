@@ -9,6 +9,8 @@
  * Core: General Layout Style
  * -------------------------
  */
+
+
 html,
 body {
   height: 100%;
@@ -123,6 +125,8 @@ body {
 .fixed .wrapper {
   overflow: hidden;
 }
+
+
 .hold-transition .content-wrapper,
 .hold-transition .right-side,
 .hold-transition .main-footer,
@@ -848,7 +852,7 @@ a:focus {
   color: #fff;
 }
 .control-sidebar-dark .control-sidebar-menu > li > a:hover {
-  background: #1e282c;
+  background: #1e282c !important;
 }
 .control-sidebar-dark .control-sidebar-menu > li > a .menu-info > p {
   color: #b8c7ce;

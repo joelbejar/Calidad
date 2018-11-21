@@ -2,7 +2,7 @@
  <header class="main-header">
 
 	<!-- logo -->
-    <a href="#" class="logo">
+    <a href="#" class="logo" >
       
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b></span>
@@ -13,7 +13,7 @@
     <!-- logo -->
 
      <!-- navbar -->
-    <nav class="navbar navbar-static-top" role="navigation">
+    <nav class="navbar navbar-static-top" role="navigation" >
 		
 		 <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">

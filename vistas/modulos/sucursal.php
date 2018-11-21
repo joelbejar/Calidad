@@ -43,6 +43,9 @@
               <th>Sector Economico</th>
               <th>Dirección</th>
               <th>Distrito</th>
+              <th>Servicio</th>
+              <th>Latitud</th>
+              <th>Longitud</th>
               <th>Fecha</th>
               
             </tr>
@@ -63,7 +66,7 @@
 
 
 <!--=====================================
-MODAL AGREGAR EMPRESA
+MODAL AGREGAR SUCURSAL
 ======================================-->
 
 <div id="modalAgregarSucursal" class="modal fade" role="dialog">
@@ -72,7 +75,7 @@ MODAL AGREGAR EMPRESA
     
     <div class="modal-content">
 
-      <form method="post" enctype="multipart/form-data">
+ 
 
         <!--=====================================
         CABEZA DEL MODAL
@@ -126,8 +129,10 @@ MODAL AGREGAR EMPRESA
                 </div>
 
             </div>
-            
 
+ 
+
+            
             
             
             <!--=====================================
@@ -158,15 +163,126 @@ MODAL AGREGAR EMPRESA
                 
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <input type="text" class="form-control input-lg direccionSucursal" placeholder="Ingresar dirección" name="direccionSucursal" required> 
+                <input type="text" class="form-control input-lg direccionSucursal" placeholder="Ingresar dirección" name="direccionSucursal" > 
 
               </div> 
 
             </div>
             
 
-            
+           <!--=====================================
+            AGREGAR DISTRITO
+            ======================================-->
 
+            <div class="form-group">
+                
+                <div class="input-group">
+              
+                  <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                  <select class="form-control input-lg seleccionarDistrito">
+                  
+                    <option value="">Selecionar Distrito</option>
+
+                    <?php
+
+                    $item = null;
+                    $valor = null;
+
+                    $distrito = ControladorDistrito::ctrMostrarDistrito($item, $valor);
+                    foreach ($distrito as $key => $value) {
+                      
+                      echo '<option value="'.$value["idDistritos"].'">'.$value["nombre"].'</option>';
+                    }
+
+                    ?>
+
+                  </select>
+
+                </div>
+
+            </div>
+
+
+           <!--=====================================
+            AGREGAR SERVICIO
+            ======================================-->
+
+            <div class="form-group">
+                
+                <div class="input-group">
+              
+                  <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                  <select class="form-control input-lg seleccionarServicio">
+                  
+                    <option value="">Selecionar Servicio</option>
+
+                    <?php
+
+                    $item = null;
+                    $valor = null;
+
+                    $servicio = ControladorServicio::ctrMostrarServicio($item, $valor);
+                    foreach ($servicio as $key => $value) {
+                      
+                      echo '<option value="'.$value["idServicios"].'">'.$value["nombre"].'</option>';
+                    }
+
+                    ?>
+
+                  </select>
+
+                </div>
+
+            </div>
+            
+           <!--=====================================
+            AGREGAR LATITUD Y LONGITUD
+            ======================================-->
+
+            <div class="form-group">
+                
+                <div class="input-group">
+              
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">VER MAPA</button>
+
+
+                </div>
+
+            </div>
+
+            <!--=====================================
+            ENTRADA DE LA DIRECCION DE LA SUCURSAL
+            ======================================-->
+
+            <div class="form-group">
+              
+              <div class="input-group">
+                
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg latitudSucursal" placeholder="Latitud" name="latitudSucursal" id="latitud" disabled > 
+
+              </div> 
+
+            </div>
+            
+            <!--=====================================
+            ENTRADA DE LA DIRECCION DE LA SUCURSAL
+            ======================================-->
+
+            <div class="form-group">
+              
+              <div class="input-group">
+                
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg longitudSucursal" placeholder="Longitud" name="longitudSucursal" id="longitud" disabled > 
+
+              </div> 
+
+            </div>
 
           </div>
 
@@ -180,11 +296,11 @@ MODAL AGREGAR EMPRESA
           
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Registrar Sucursal</button>
+          <button type="submit" class="btn btn-primary guardarSucursal">Registrar Sucursal</button>
 
         </div>
 
-      </form>
+
 
 
 
@@ -192,6 +308,20 @@ MODAL AGREGAR EMPRESA
 
   </div>
 
+</div>
+
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div id="map" style="width: 100%; height: 600px;"></div>
+            <br>
+        <div class="modal-footer text-center formulario_modal_salir">
+            <button type="button" class="btn btn-large text-center" data-dismiss="modal">Generar Coordenadas</button>
+    
+      </div>
+    </div>
+  </div>
 </div>
 
 

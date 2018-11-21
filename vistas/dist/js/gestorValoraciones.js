@@ -49,3 +49,51 @@ $(".tablaOpinion").DataTable({
 	 }
 
 });
+
+/*=============================================
+ELIMINAR VALORACION
+=============================================*/
+
+$(".tablaOpinion tbody").on("click", ".btnEliminarValoracion", function(){
+
+	var idValoracion = $(this).attr("idValoracion");
+	var eliminarValoracion = $(this).attr("eliminarValoracion");
+
+    
+	var datos = new FormData();
+ 	datos.append("eliminarId", idValoracion);
+  	datos.append("eliminarValoracion", eliminarValoracion);
+
+  	$.ajax({
+
+  		 url:"ajax/valoraciones.ajax.php",
+  		 method: "POST",
+	  	data: datos,
+	  	cache: false,
+      	contentType: false,
+      	processData: false,
+      	success: function(respuesta){ 
+      	    
+      	     //console.log("respuesta", respuesta);
+
+      	} 	 
+
+  	});
+ 
+  	if(eliminarValoracion == 0){
+
+  		$(this).removeClass('btn-danger');
+  		$(this).addClass('btn-success');
+  		$(this).html('Eliminado');
+  		$(this).attr('eliminarValoracion',1);
+  	
+  	}else{
+
+  		$(this).addClass('btn-danger');
+  		$(this).removeClass('btn-success');
+  		$(this).html('Eliminado');
+  		$(this).attr('eliminarValoracion',0);
+
+  	}
+
+})
