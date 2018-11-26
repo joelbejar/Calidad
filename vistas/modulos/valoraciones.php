@@ -38,7 +38,7 @@
             <tr>
               
               <th style="width:10px">#</th>
-              <th>Nombres</th>
+              <th>Nombres y Apellidos</th>
               <th>Empresa</th>
               <th>Dirección</th>
               <th>Comentario</th>

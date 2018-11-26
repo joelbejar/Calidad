@@ -38,13 +38,12 @@
             <tr>
               
               <th style="width:10px">#</th>
-              <th>Nombres</th>
-              <th>Apellidos</th>
-              <th>Email</th>
-              <th>Usuario</th>
+              <th>Nombre Reportado</th>
+              <th>Correo Usuario Reportado</th>
+              <th>Nombre que Reporta</th>
               <th>Motivo</th>
-              <th>Telefono</th>
-              <th>Foto</th>
+              <th>Telefono que Reporta</th>
+              <th>Imagen</th>
               <th>Fecha</th>
 
             </tr>

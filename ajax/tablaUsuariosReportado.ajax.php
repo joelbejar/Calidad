@@ -23,26 +23,23 @@
             $datosJson='{
             "data": [ ';
             for ($i=0;$i<count($usuariosreportado);$i++){
-                        $item = "idUsuario_reportado";
                         $valor = $usuariosreportado[$i]["idUsuario_reportado"];
-                        $usuario= ControladorGeneral::ctrMostrarGeneralUsuarioReportado($item,$valor);
+                        $usuario= ModeloGeneral::mdlMostrarGeneralUsuarioReportado($valor);
+                
+                   
 
-                
-                
-                        $limpio=preg_replace("[\n|\r|\n\r]", "", $usuariosreportado[$i]["link_dni_que_reporta"]);
-                $imagen= "<img class='img-responsive center-block' style='width:150px;height:150px;' src='data:image/jpeg;base64,".$limpio."' title='Título de la imágen' >";
-               
-                '<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="myModalLabel">Modal title</h4></div><div class="modal-body"><img class="img-responsive center-block" style="width:100px;height:100px;" src="data:image/jpeg;base64,"'.$limpio.'" title="Título de la imágen" ></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button><button type="button" class="btn btn-primary">Save changes</button></div></div></div></div>';
+                       $limpio=preg_replace("[\n|\r|\n\r]", "", $usuariosreportado[$i]["link_dni_que_reporta"]);
+                         $imagen= "<img class='img-responsive center-block' style='width:150px;height:150px;' src='data:image/jpeg;base64,".$limpio."' title='Título de la imágen' >";
+                  
                 /*=============================================
                 DEVOLVER DATOS JSON
                 =============================================*/
 
                 $datosJson	 .= '[
                             "'.($i+1).'",
-                            "'.$usuario["nombre_usuario"].'",
-                            "'.$usuario["apellido_usuario"].'",
-                            "'.$usuario["email_usuario"].'",
-                            "'.$usuario["usuario"].'",
+                            "'.$usuario["nombre_reportado"].'",
+                            "'.$usuario["email_usuario_reportado"].'",
+                            "'.$usuario["nombre_que_reporta"].'",
                             "'.$usuariosreportado[$i]["motivo"].'",
                             "'.$usuariosreportado[$i]["telefono_que_reporta"].'",
                             "'.$imagen.'",

@@ -37,12 +37,11 @@
             "data": [ ';
             for ($i=0;$i<count($sucursal);$i++){
                 
-                $item = "idSucursal";
                 
                 $valor = $sucursal[$i]["idSucursal"];
                 
                 
-                $resp = ControladorGeneral::ctrMostrarGeneral($item,$valor);
+                $resp = ControladorGeneral::ctrMostrarGeneral($valor);
    
              
                 /*=============================================

@@ -9,12 +9,12 @@ $.ajax({
     
     url:"ajax/tablaValoraciones.ajax.php",
     success:function(resp){
-        console.log("respuesta",resp);
+        console.log("r",resp);
     }
     
     
-})
-*/
+})*/
+
 
 $(".tablaOpinion").DataTable({
 	 "ajax": "ajax/tablaValoraciones.ajax.php",

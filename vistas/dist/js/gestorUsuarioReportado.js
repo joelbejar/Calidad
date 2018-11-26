@@ -3,21 +3,22 @@
 CARGAR LA TABLA DINAMICA DE USUARIOS
 ==========================================
 */
-
 /*
 $.ajax({
     
     url:"ajax/tablaUsuariosReportado.ajax.php",
     success:function(resp){
-        console.log("respta",resp);
+        console.log("respuesta",resp);
     }
     
     
-})*/
+});
 
 
+*/
 $(".tablaUsuariosReportado").DataTable({
 	 "ajax": "ajax/tablaUsuariosReportado.ajax.php",
+    "timeout": 50000,
 	 "deferRender": true,
 	 "retrieve": true,
 	 "processing": true,

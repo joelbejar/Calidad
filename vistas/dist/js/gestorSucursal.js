@@ -13,8 +13,8 @@ $.ajax({
     }
     
     
-});
-*/
+});*/
+
 
 $(".tablaSucursal").DataTable({
 	 "ajax": "ajax/tablaSucursal.ajax.php",
@@ -79,7 +79,6 @@ $(".seleccionarEmpresa").change(function(){
         dataType: "json",
       	success: function(respuesta){ 
       	    
-      	    // console.log("respuesta", respuesta);
              $(".entradaSectorEconomico").show();
             $(".entradaSectorEconomico .sectorEmpresa").val(respuesta["sector_economico"]);
 
@@ -148,7 +147,7 @@ function agregarSucursal(){
         processData: false,
         success: function(res){
 					
-                console.log("respuesta",res);
+                
                 if(res == "ok"){
 
 						swal({

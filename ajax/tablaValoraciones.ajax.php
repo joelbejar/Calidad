@@ -2,12 +2,10 @@
 
     require_once "../controladores/valoraciones.controlador.php";
     require_once "../modelos/valoraciones.modelo.php";
-    require_once "../controladores/usuarios.controlador.php";
-    require_once "../modelos/usuarios.modelo.php";
-    require_once "../controladores/sucursal.controlador.php";
-    require_once "../modelos/sucursal.modelo.php";
-    require_once "../controladores/empresas.controlador.php";
-    require_once "../modelos/empresas.modelo.php";
+
+
+    require_once "../controladores/general.controlador.php";
+    require_once "../modelos/general.modelo.php";
     class TablaValoraciones{
         
         /*=============================
@@ -31,31 +29,12 @@
                 RECUPERAR LOS NOMBRES DE USUARIOS
                 =================================
                 */
-                $item = "idUsuario";
                 $valor = $valoracion[$i]["idUsuario"];
                 
                 
-                $usuario = ControladorUsuarios::ctrMostrarUsuarios($item,$valor);
+                $usuario = ControladorGeneral::ctrMostrarGeneralValoracion($valor);
                 
-                /*===============================
-                RECUPERAR LOS NOMBRES DE LAS EMPRESAS
-                =================================
-                */
                 
-                $item = "idSucursal";
-                $valor = $valoracion[$i]["idSucursal"];
-                
-                $sucursal = ControladorSucursal::ctrMostrarSucursal($item,$valor);
-                
-                $item = "idEmpresa";
-                $valor = $sucursal["idEmpresa"];
-
-                $empresa = ControladorEmpresas::ctrMostrarEmpresas($item,$valor);
-                
-                /*=============================================
-                REVISAR ESTADO  PARA ELIMINAR
-                =============================================*/
-
                 
 	  			if( $valoracion[$i]["eliminado"] == 0){
 
@@ -79,13 +58,13 @@
 
                 $datosJson	 .= '[
                             "'.($i+1).'",
-                            "'.$usuario["nombre"].'",
-                            "'.$empresa["nombre"].'",
-                            "'.$sucursal["direccion"].'",
-                            "'.$valoracion[$i]["comentario"].'",
-                            "'.$valoracion[$i]["puntaje"].'",
+                            "'.$usuario["nombreUsuario"].'",
+                            "'.$usuario["nombreEmpresa"].'",
+                            "'.$usuario["direccion"].'",
+                            "'.$usuario["comentario"].'",
+                            "'.$usuario["puntaje"].'",
                             "'.$eliminado.'",
-                            "'.$valoracion[$i]["fecha"].'"
+                            "'.$usuario["fecha"].'"
                         ],';
                 }
 
