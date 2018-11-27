@@ -26,17 +26,20 @@
                 $stmt -> execute();
 
                 return $stmt -> fetch();
+                $stmt -> close();
+            $stmt = null;  
 
             }else{
-                $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY fecha DESC");
+                $stmt = Conexion::conectar()->prepare("SELECT idValoracion,idUsuario,eliminado FROM $tabla ORDER BY fecha DESC");
             
                 $stmt -> execute();
 
                 return $stmt -> fetchAll();
+                $stmt -> close();
+            $stmt = null;  
             }
 
-            $stmt -> close();
-            $stmt = null;  
+            
         }
         	/*=============================================
 	ELIMINAR VALORACION

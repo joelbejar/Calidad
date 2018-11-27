@@ -19,7 +19,6 @@
             $valoracion  = ControladorValoraciones::ctrMostrarValoraciones($item,$valor);
             
 
-
             $datosJson='{
             "data": [ ';
             for ($i=0;$i<count($valoracion);$i++){
@@ -33,7 +32,6 @@
                 
                 
                 $usuario = ControladorGeneral::ctrMostrarGeneralValoracion($valor);
-                
                 
                 
 	  			if( $valoracion[$i]["eliminado"] == 0){
@@ -75,7 +73,6 @@
                 }'; 
 
                 echo $datosJson;
-            
         }
     }
 

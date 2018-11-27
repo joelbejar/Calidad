@@ -4,7 +4,7 @@ CARGAR LA TABLA DINAMICA DE USUARIOS
 ==========================================
 */
 
-/*
+
 $.ajax({
     
     url:"ajax/tablaValoraciones.ajax.php",
@@ -13,7 +13,7 @@ $.ajax({
     }
     
     
-})*/
+})
 
 
 $(".tablaOpinion").DataTable({
@@ -49,7 +49,6 @@ $(".tablaOpinion").DataTable({
 	 }
 
 });
-
 /*=============================================
 ELIMINAR VALORACION
 =============================================*/
