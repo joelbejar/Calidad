@@ -9,10 +9,13 @@
             
             $stmt -> execute();
             
-            return $stmt -> fetchAll();
+            $response = $stmt -> fetchAll();
             
             $stmt -> close();
+            
             $stmt = null;
+
+            return $response;
             
         }
 
@@ -25,37 +28,50 @@
             
                 $stmt -> execute();
 
-                return $stmt -> fetch();
+                $response = $stmt -> fetch(); 
+                $stmt -> close();
+                $stmt = null; 
+
+                return $response;
 
             }else{
                 $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY idUsuario DESC");
             
                 $stmt -> execute();
 
-                return $stmt -> fetchAll();
-            }
+                $response = $stmt -> fetchAll();
 
-            $stmt -> close();
-            $stmt = null;  
+                $stmt -> close();
+                $stmt = null; 
+                return $response;
+            }
+ 
         }
        
 
           static public function mdlMostrarUsuariosReportado($tabla,$item,$valor){
-            
+
             if($item!=null){
                 $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
                 $stmt ->bindParam(":".$item,$valor, PDO::PARAM_STR);            
             
-                $stmt -> execute();
+                $response = $stmt -> execute();
 
-                return $stmt -> fetch();
+                $stmt -> close();
+                $stmt = null;  
+
+                return $response;
 
             }else{
-                $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY fecha DESC");
+                $stmt = Conexion::conectar()->prepare("call sp_get_all_user_reported()");
             
-                $stmt -> execute();
+                $stmt->execute();
+                $response = $stmt -> fetchAll();
 
-                return $stmt -> fetchAll();
+                // $stmt->close();
+                // $stmt = null;  
+
+                return $response;
             }
 
             $stmt -> close();

@@ -1,0 +1,23 @@
+{
+  "name": "webCalidad",
+  "homepage": "https://github.com/joelbejar/Calidad",
+  "authors": [
+    "GersonCarrascoL <gerson.carrasco@unmsm.edu.pe>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "directory" : "vistas/bower_components",
+  "dependencies": {
+    "datatables.net-bs": "^2.1.1",
+    "datatables.net": "^1.10.19",
+    "datatables.net-responsive-dt": "^2.2.3"
+  }
+}

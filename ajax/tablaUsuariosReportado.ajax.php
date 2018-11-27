@@ -18,18 +18,15 @@
             
             $usuariosreportado = ControladorUsuarios::ctrMostrarUsuariosReportados($item,$valor);
             
-      
 
             $datosJson='{
             "data": [ ';
             for ($i=0;$i<count($usuariosreportado);$i++){
-                        $valor = $usuariosreportado[$i]["idUsuario_reportado"];
-                        $usuario= ModeloGeneral::mdlMostrarGeneralUsuarioReportado($valor);
+                        // $valor = $usuariosreportado[$i]["idUsuario_reportado"];
+                        // $usuario= ModeloGeneral::mdlMostrarGeneralUsuarioReportado($valor);
                 
-                   
-
                        $limpio=preg_replace("[\n|\r|\n\r]", "", $usuariosreportado[$i]["link_dni_que_reporta"]);
-                         $imagen= "<img class='img-responsive center-block' style='width:150px;height:150px;' src='data:image/jpeg;base64,".$limpio."' title='Título de la imágen' >";
+                        $imagen= "<img class='img-responsive center-block' style='width:150px;height:150px;' src='data:image/jpeg;base64,".$limpio."' title='Título de la imágen' >";
                   
                 /*=============================================
                 DEVOLVER DATOS JSON
@@ -37,9 +34,9 @@
 
                 $datosJson	 .= '[
                             "'.($i+1).'",
-                            "'.$usuario["nombre_reportado"].'",
-                            "'.$usuario["email_usuario_reportado"].'",
-                            "'.$usuario["nombre_que_reporta"].'",
+                            "'.$usuariosreportado[$i]["usuario_reportado"].'",
+                            "'.$usuariosreportado[$i]["email_usuario_reportado"].'",
+                            "'.$usuariosreportado[$i]["usuario_reportador"].'",
                             "'.$usuariosreportado[$i]["motivo"].'",
                             "'.$usuariosreportado[$i]["telefono_que_reporta"].'",
                             "'.$imagen.'",
