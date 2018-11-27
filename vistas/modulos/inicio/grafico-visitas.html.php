@@ -1,33 +1,12 @@
 <?php
 
-    $item=null;
     $valor=null;
-    $empresa=ControladorGeneral::ctrMostrarGeneral($item,$valor); 
-    $color= array("aqua","green","blue","red","purple","yellow","brown","black");
-    $arrayEmpresa= array();
-    $arrayPuntajes= array();
-    foreach($empresa as $key => $value){
-        array_push($arrayEmpresa,$value["nombre_empresa"]);
-        
-        
-        $arrayPuntajes= array($value["nombre_empresa"]=>$value["puntaje"]);
-        
-        foreach ($arrayPuntajes as $key => $value) {
-			
-			$sumaPuntajes[$key] += $value;
-		}
+    $empresa=ModeloGeneral::mdlMostrarGeneral($valor); 
+    for($i=0;$i<count($empresa);$i++){
+            $totalPuntaje+=$empresa[$i]["puntaje"];   
     }
-arsort($sumaPuntajes);
-   $noRepetirEmpresa = array_unique($arrayEmpresa);
-    
+    $color= array("aqua","green","blue","red","purple","yellow","brown","black");
 
-
-             foreach ($sumaPuntajes as $key => $value) {
-			
-			$totalPuntaje += $value;
-		}  
-
-    
 
 ?>
 
@@ -74,10 +53,9 @@ arsort($sumaPuntajes);
 
           <?php
 
-            foreach($sumaPuntajes as $key => $value){
-                 $i=0;
-                 echo '<li><i class="fa fa-circle-o text-'.$color[$i].'"></i> '.$key.'</li>';
-                $i++;
+             for($i=0;$i<count($empresa);$i++){
+                 echo '<li><i class="fa fa-circle-o text-'.$color[$i].'"></i> '.$empresa[$i]["nombre"].'</li>';
+                
             }
 
           ?>
@@ -100,15 +78,12 @@ arsort($sumaPuntajes);
 	    <ul class="nav nav-pills nav-stacked">
         <?php
             
-            for($i=0;$i<5;$i++){
-
-            }
-            
-            foreach($sumaPuntajes as $key => $value){
-                echo '	<li>        
-                          <a href="#">'.$key.'
-                          <span class="pull-right text-red">'.ceil($value*100/$totalPuntaje).'%</span></a>
+            for($i=0;$i<count($empresa);$i++){
+                  echo '	<li>        
+                          <a href="#">'.$empresa[$i]["nombre"].'
+                          <span class="pull-right text-red">'.ceil($empresa[$i]["puntaje"]*100/$totalPuntaje).'%</span></a>
                       </li>';
+                
             }
             ?>
 	    </ul>
@@ -132,15 +107,16 @@ arsort($sumaPuntajes);
       
       
       <?php
-      foreach($sumaPuntajes as $key => $value){
-    echo "{
-      value    : ".$value.",
-      color    : '#00a65a',
-      highlight: '#00a65a',
-      label    : '".$key."'
-    },";
+     for($i=0;$i<count($empresa);$i++){
+                        echo "{
+              value    : ".$empresa[$i]["puntaje"].",
+              color    : '".$color[$i]."',
+              highlight: '".$color[$i]."',
+              label    : '".$empresa[$i]["nombre"]."'
+            },";
+                
+            }
       
-      }
       ?>
   ];
   var pieOptions     = {

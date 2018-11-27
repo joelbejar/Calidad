@@ -8,6 +8,10 @@
 
         static public function mdlMostrarGeneral($valor){
             
+            
+            if($valor!=null){
+                
+            
                 $stmt = Conexion::conectar()->prepare("call get_sucursal(:idSucursal)");
          
                 $stmt ->bindParam(":idSucursal",$valor, PDO::PARAM_INT); 
@@ -16,6 +20,14 @@
                 $stmt -> execute();
 
                 return $stmt -> fetch();
+            }else{
+                $stmt = Conexion::conectar()->prepare("call get_empresa_puntaje()");
+            
+            
+                $stmt -> execute();
+
+                return $stmt -> fetchAll();   
+            }
 
                 $stmt -> close();
                 $stmt = null;  

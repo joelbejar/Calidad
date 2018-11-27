@@ -11,12 +11,13 @@
             
             $response = $stmt -> fetchAll();
             
-            $stmt -> close();
-            
-            $stmt = null;
+
 
             return $response;
             
+            $stmt -> close();
+            
+            $stmt = null;
         }
 
 
@@ -29,8 +30,7 @@
                 $stmt -> execute();
 
                 $response = $stmt -> fetch(); 
-                $stmt -> close();
-                $stmt = null; 
+       
 
                 return $response;
 
@@ -41,10 +41,10 @@
 
                 $response = $stmt -> fetchAll();
 
-                $stmt -> close();
-                $stmt = null; 
                 return $response;
             }
+                     $stmt -> close();
+                $stmt = null; 
  
         }
        
