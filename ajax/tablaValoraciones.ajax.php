@@ -38,7 +38,7 @@
 	  			if( $valoracion[$i]["eliminado"] == 0){
 
 	  				$colorEliminar = "btn-success";
-	  				$textoEliminar = "Eliminado";
+	  				$textoEliminar = "Eliminar";
 	  				$eliminarUsuario = 0;
 
 

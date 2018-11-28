@@ -50,7 +50,7 @@
 	  			if( $usuarios[$i]["es_eliminado"] == 0){
 
 	  				$colorEliminar = "btn-success";
-	  				$textoEliminar = "Eliminado";
+	  				$textoEliminar = "Eliminar";
 	  				$eliminarUsuario = 0;
 
 
