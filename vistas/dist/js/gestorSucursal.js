@@ -4,17 +4,17 @@ CARGAR LA TABLA DINAMICA DE SUCURSAL
 ==========================================
 */
 
-/*
+ /*
 $.ajax({
-    
+     
     url:"ajax/tablaSucursal.ajax.php",
     success:function(resp){
         console.log("respuesta",resp);
     }
     
     
-});*/
-
+});
+*/
 
 $(".tablaSucursal").DataTable({
 	 "ajax": "ajax/tablaSucursal.ajax.php",
@@ -49,7 +49,6 @@ $(".tablaSucursal").DataTable({
 	 }
 
 });
-
 
 
 
@@ -122,14 +121,7 @@ function agregarSucursal(){
     var id_servicio=parseInt($(".seleccionarServicio").val());
     var latitud=$(".latitudSucursal").val();
     var longitud=$(".longitudSucursal").val();
-   
-    console.log(id_empresa);
-    console.log(direccion_sucursal);
-    console.log(id_distrito);
-    console.log(id_servicio);
-
-        console.log(latitud);
-    console.log(longitud);
+ 
     var datosSucursal = new FormData();
     datosSucursal.append("idEmpresa",id_empresa);
     datosSucursal.append("direccion",direccion_sucursal);

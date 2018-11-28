@@ -1,19 +1,10 @@
 <?php
 
-    require_once "../controladores/distrito.controlador.php";
-    require_once "../modelos/distrito.modelo.php";
+
 
 
     require_once "../controladores/sucursal.controlador.php";
     require_once "../modelos/sucursal.modelo.php";
-
-
-    require_once "../controladores/empresas.controlador.php";
-    require_once "../modelos/empresas.modelo.php";
-
-
-    require_once "../controladores/servicio.controlador.php";
-    require_once "../modelos/servicio.modelo.php";
 
 
     require_once "../controladores/general.controlador.php";
@@ -29,19 +20,19 @@
             $item = null;
             $valor = null;
             
-            $sucursal = ControladorSucursal::ctrMostrarSucursal($item,$valor);
-            
+           // $sucursal = ControladorSucursal::ctrMostrarSucursal($item,$valor);
+            $sucursal=ControladorSucursal::ctrMostrarSucursal($item,$valor);
 
-
+   
             $datosJson='{
             "data": [ ';
             for ($i=0;$i<count($sucursal);$i++){
                 
+           
+                //$valor = $sucursal[$i]["idSucursal"];
                 
-                $valor = $sucursal[$i]["idSucursal"];
                 
-                
-                $resp = ControladorGeneral::ctrMostrarGeneral($valor);
+                //$resp = ModeloSucursal::mdlMostrarSucursal($valor);
    
              
                 /*=============================================
@@ -50,14 +41,14 @@
 
                 $datosJson	 .= '[
                             "'.($i+1).'",
-                            "'.$resp["nombre_empresa"].'",
-                            "'.$resp["sector_economico"].'",
-                            "'.$resp["direccion_empresa"].'",
-                            "'.$resp["nombre_distrito"].'",
-                            "'.$resp["nombre_servicio"].'",
-                            "'.$resp["latitud"].'",
-                            "'.$resp["longitud"].'",
-                            "'.$resp["fecha_empresa"].'"
+                            "'.$sucursal[$i]["nombre_empresa"].'",
+                            "'.$sucursal[$i]["sector_economico"].'",
+                            "'.$sucursal[$i]["direccion_empresa"].'",
+                            "'.$sucursal[$i]["nombre_distrito"].'",
+                            "'.$sucursal[$i]["nombre_servicio"].'",
+                            "'.$sucursal[$i]["latitud"].'",
+                            "'.$sucursal[$i]["longitud"].'",
+                            "'.$sucursal[$i]["fecha_empresa"].'"
                         ],';
                 }
 

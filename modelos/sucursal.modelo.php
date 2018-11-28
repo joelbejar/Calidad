@@ -9,23 +9,26 @@
         static public function mdlMostrarSucursal($tabla,$item,$valor){
             
             if($item!=null){
-                $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
+                $stmt = Conexion::conectar()->prepare("SELECT idSucursal FROM $tabla WHERE $item = :$item");
                 $stmt ->bindParam(":".$item,$valor, PDO::PARAM_STR);            
             
                 $stmt -> execute();
 
                 return $stmt -> fetch();
+                        $stmt -> close();
+            $stmt = null; 
 
             }else{
-                $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY idSucursal DESC");
+                $stmt = Conexion::conectar()->prepare("call get_sucursal()");
             
                 $stmt -> execute();
 
                 return $stmt -> fetchAll();
+                        $stmt -> close();
+            $stmt = null; 
             }
 
-            $stmt -> close();
-            $stmt = null;  
+     
         }
         
         static public function mdlMostrarRelacionServicio($tabla,$item,$valor){

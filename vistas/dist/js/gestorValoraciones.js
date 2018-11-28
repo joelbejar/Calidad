@@ -3,7 +3,7 @@
 CARGAR LA TABLA DINAMICA DE USUARIOS
 ==========================================
 */
-
+/*
 
 $.ajax({
     
@@ -15,7 +15,7 @@ $.ajax({
     
 })
 
-
+*/
 $(".tablaOpinion").DataTable({
 	 "ajax": "ajax/tablaValoraciones.ajax.php",
 	 "deferRender": true,

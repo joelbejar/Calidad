@@ -52,6 +52,10 @@
       
         static public function mdlMostrarGeneralValoracion($valor){
 
+            
+            if($valor!=null){
+                
+
 		          $stmt = Conexion::conectar()->prepare("call get_valoraciones(:idUsuario)");
 
                     $stmt ->bindParam(":idUsuario",$valor, PDO::PARAM_INT); 
@@ -60,7 +64,15 @@
                     $stmt -> execute();
 
                     return $stmt -> fetch();
+            }else{
+                
+		          $stmt = Conexion::conectar()->prepare("call get_all_valoracion()");
 
+
+                    $stmt -> execute();
+
+                    return $stmt -> fetchAll();
+            }
                     $stmt -> close();
                     $stmt = null;  
             }

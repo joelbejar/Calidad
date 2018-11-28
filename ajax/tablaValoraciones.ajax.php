@@ -16,9 +16,10 @@
             $item = null;
             $valor = null;
             
-            $valoracion  = ControladorValoraciones::ctrMostrarValoraciones($item,$valor);
+            //$valoracion  = ControladorValoraciones::ctrMostrarValoraciones($item,$valor);
             
-
+            $valoracion=ControladorGeneral::ctrMostrarGeneralValoracion($valor);
+            
             $datosJson='{
             "data": [ ';
             for ($i=0;$i<count($valoracion);$i++){
@@ -28,10 +29,10 @@
                 RECUPERAR LOS NOMBRES DE USUARIOS
                 =================================
                 */
-                $valor = $valoracion[$i]["idUsuario"];
+                //$valor = $valoracion[$i]["idUsuario"];
                 
                 
-                $usuario = ControladorGeneral::ctrMostrarGeneralValoracion($valor);
+                //$usuario = ControladorGeneral::ctrMostrarGeneralValoracion($valor);
                 
                 
 	  			if( $valoracion[$i]["eliminado"] == 0){
@@ -56,13 +57,13 @@
 
                 $datosJson	 .= '[
                             "'.($i+1).'",
-                            "'.$usuario["nombreUsuario"].'",
-                            "'.$usuario["nombreEmpresa"].'",
-                            "'.$usuario["direccion"].'",
-                            "'.$usuario["comentario"].'",
-                            "'.$usuario["puntaje"].'",
+                            "'.$valoracion[$i]["nombreUsuario"].'",
+                            "'.$valoracion[$i]["nombreEmpresa"].'",
+                            "'.$valoracion[$i]["direccion"].'",
+                            "'.$valoracion[$i]["comentario"].'",
+                            "'.$valoracion[$i]["puntaje"].'",
                             "'.$eliminado.'",
-                            "'.$usuario["fecha"].'"
+                            "'.$valoracion[$i]["fecha"].'"
                         ],';
                 }
 
